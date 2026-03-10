@@ -56,7 +56,7 @@ function buildRecurring(locale: 'fr' | 'en'): Record<string, CalEvent[]> {
       events.push(ev(L ? 'Cultes du dimanche' : 'Sunday services', L ? '7h30 · 9h · 11h' : '7:30 · 9 · 11 AM', 'culte'));
     }
     if (dow === 2) {
-      events.push(ev(L ? 'Mardi de la décision' : 'Tuesday of Decision', '19h', 'culte'));
+      events.push(ev(L ? 'Mardi Heure De la Décision (HDD)' : 'Tuesday Hour of Decision (HDD)', '19h', 'culte'));
       events.push(ev(L ? 'Veillée dénomination' : 'Denomination watch', L ? '0h – 3h' : '12 – 3 AM', 'priere'));
     }
     if (dow === 3) {
@@ -67,7 +67,7 @@ function buildRecurring(locale: 'fr' | 'en'): Record<string, CalEvent[]> {
       events.push(ev(L ? 'Veillée des familles' : 'Families watch', L ? '0h – 3h' : '12 – 3 AM', 'priere'));
     }
     if (dow === 5) {
-      events.push(ev(L ? 'Vendredi des possibilités' : 'Friday of Possibilities', L ? '19h (1×/2 sem.)' : '7 PM (bi-weekly)', 'culte'));
+      events.push(ev(L ? 'Vendredi de Toutes les Possibilités (VTP)' : 'Friday of All Possibilities (VTP)', L ? '19h (1×/2 sem.)' : '7 PM (bi-weekly)', 'culte'));
     }
     if (dow === 6) {
       events.push(ev(L ? 'Samedi d\'alliance' : 'Saturday of Alliance', L ? '12h – 16h' : '12 PM – 4 PM', 'evangelisation'));

@@ -1,6 +1,6 @@
 /**
  * Données du calendrier annuel de l'église : thèmes mensuels, événements spéciaux, cultes spéciaux du dimanche.
- * Année de référence affichée dans le calendrier interactif.
+ * Année de référence affichée dans le calendrier.
  */
 
 export const CALENDAR_YEAR = 2026;
