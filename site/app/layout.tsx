@@ -53,11 +53,20 @@ export const metadata: Metadata = {
     title: `${SITE_NAME} – Ouvre-toi`,
     description: DEFAULT_DESCRIPTION_FR,
     url: baseUrl,
+    images: [
+      {
+        url: "/opengraph-image.png",
+        width: 1200,
+        height: 630,
+        alt: `${SITE_NAME} – Ouvre-toi`,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: `${SITE_NAME} – Ouvre-toi`,
     description: DEFAULT_DESCRIPTION_FR,
+    images: ["/opengraph-image.png"],
   },
   robots: {
     index: true,
