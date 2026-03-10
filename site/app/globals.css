@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #1a1a1a;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-brand-primary: #3c2252;
+  --color-brand-accent: #efc30a;
+  --color-brand-light: #fafafa;
+
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-playfair);
+}
+
+body {
+  background: var(--background);
+  color: #404040;
+  font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.container-page {
+  @apply mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-12;
+}
+
+.section-spacing {
+  @apply py-16 sm:py-24 lg:py-32;
+}
+
+.font-display {
+  font-family: var(--font-playfair), Georgia, "Times New Roman", serif;
+}
+
+.hero-page {
+  @apply relative flex min-h-[55vh] items-center justify-center overflow-hidden text-white;
+  background-color: #1a1a1a;
+}
+
+.hero-overlay {
+  @apply absolute inset-0 bg-black/50;
+}
+
+@keyframes typing-blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.typing-cursor {
+  animation: typing-blink 0.8s step-end infinite;
+  border-left: 2px solid currentColor;
+  margin-left: 2px;
+  height: 1em;
+  vertical-align: -0.15em;
+}
