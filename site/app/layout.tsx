@@ -7,6 +7,7 @@ import { SiteHeader } from "../components/SiteHeader";
 import { SiteFooter } from "../components/SiteFooter";
 import { FloatingBar } from "../components/FloatingBar";
 import { getBaseUrl, SITE_NAME, DEFAULT_DESCRIPTION_FR } from "@/lib/seo";
+import logo from "../../Ressources/image-logo.png";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -55,9 +56,9 @@ export const metadata: Metadata = {
     url: baseUrl,
     images: [
       {
-        url: "/opengraph-image.png",
-        width: 1200,
-        height: 630,
+        url: logo.src,
+        width: 512,
+        height: 512,
         alt: `${SITE_NAME} – Ouvre-toi`,
       },
     ],
@@ -66,11 +67,14 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `${SITE_NAME} – Ouvre-toi`,
     description: DEFAULT_DESCRIPTION_FR,
-    images: ["/opengraph-image.png"],
+    images: [logo.src],
   },
   robots: {
     index: true,
     follow: true,
+  },
+  icons: {
+    icon: logo.src,
   },
 };
 
