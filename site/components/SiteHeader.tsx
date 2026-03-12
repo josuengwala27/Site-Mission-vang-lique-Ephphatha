@@ -60,7 +60,7 @@ export function SiteHeader() {
 
   const headerTransparent = isHome && !scrolled;
   const headerClassName = headerTransparent
-    ? 'header-transparent sticky top-0 z-50 border-b border-transparent bg-transparent backdrop-blur-0 transition-colors duration-300'
+    ? 'header-transparent sticky top-0 z-50 border-b border-white/10 bg-black/40 backdrop-blur-sm transition-colors duration-300'
     : 'sticky top-0 z-50 border-b border-gray-100 bg-white/95 shadow-sm backdrop-blur-md transition-colors duration-300';
 
   return (
