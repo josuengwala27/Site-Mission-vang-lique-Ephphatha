@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-import { Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import { Playfair_Display } from "next/font/google";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import { I18nProvider } from "../components/I18nProvider";
 import { SiteHeader } from "../components/SiteHeader";
@@ -9,10 +8,9 @@ import { SiteFooter } from "../components/SiteFooter";
 import { FloatingBar } from "../components/FloatingBar";
 import { getBaseUrl, SITE_NAME, DEFAULT_DESCRIPTION_FR } from "@/lib/seo";
 
-const inter = Inter({
-  variable: "--font-sans-helvetica",
+const geistSans = Geist({
+  variable: "--font-geist-sans",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
 });
 
 const geistMono = Geist_Mono({
@@ -34,20 +32,7 @@ const organizationJsonLd = {
   "@type": "Organization",
   name: SITE_NAME,
   url: baseUrl,
-  logo: {
-    "@type": "ImageObject",
-    url: `${baseUrl}/logo.png`,
-    width: 512,
-    height: 512,
-  },
-};
-
-const websiteJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  name: SITE_NAME,
-  url: baseUrl,
-  publisher: { "@id": `${baseUrl}/#organization` },
+  logo: `${baseUrl}/logo.png`,
 };
 
 export const metadata: Metadata = {
@@ -107,18 +92,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
-      <body
-        className={`${inter.variable} ${geistMono.variable} ${playfair.variable} antialiased`}
-      >
+      <head>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify([
-              { ...organizationJsonLd, "@id": `${baseUrl}/#organization` },
-              websiteJsonLd,
-            ]),
-          }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
         />
+      </head>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} antialiased`}
+      >
         <I18nProvider>
           <SiteHeader />
           <main>{children}</main>

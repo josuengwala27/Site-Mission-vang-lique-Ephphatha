@@ -44,7 +44,7 @@ export function SiteHeader() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 border-b border-gray-100 bg-white/95 shadow-sm backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b border-gray-100 bg-white/95 backdrop-blur-md">
       <div className="container-page flex h-28 items-center justify-between gap-8">
         <Link href="/" className="shrink-0" onClick={close}>
           <Image src="/logo-ephphatha.png" alt="Mission Évangélique Ephphatha" width={360} height={104} className="h-[88px] w-auto" priority />
@@ -52,7 +52,7 @@ export function SiteHeader() {
 
         {/* Desktop nav */}
         <nav className="hidden items-center gap-6 lg:flex">
-          <Link href="/cultes" className="nav-link-underline text-[13px] font-medium uppercase tracking-[0.14em] text-gray-500 transition hover:text-gray-900">
+          <Link href="/cultes" className="text-[13px] font-medium uppercase tracking-[0.14em] text-gray-500 transition hover:text-gray-900">
             {t.nav.cultes}
           </Link>
 
@@ -60,7 +60,7 @@ export function SiteHeader() {
           <div className="relative" ref={dropdownRef}>
             <button
               onClick={() => setDropdownOpen(!dropdownOpen)}
-              className="nav-link-underline flex items-center gap-1 text-[13px] font-medium uppercase tracking-[0.14em] text-gray-500 transition hover:text-gray-900"
+              className="flex items-center gap-1 text-[13px] font-medium uppercase tracking-[0.14em] text-gray-500 transition hover:text-gray-900"
             >
               {t.nav.communaute}
               <svg className={`h-3 w-3 transition-transform duration-200 ${dropdownOpen ? 'rotate-180' : ''}`} viewBox="0 0 20 20" fill="currentColor">
@@ -84,7 +84,7 @@ export function SiteHeader() {
           </div>
 
           {mainLinks.slice(1).map((link) => (
-            <Link key={link.href} href={link.href} className="nav-link-underline text-[13px] font-medium uppercase tracking-[0.14em] text-gray-500 transition hover:text-gray-900">
+            <Link key={link.href} href={link.href} className="text-[13px] font-medium uppercase tracking-[0.14em] text-gray-500 transition hover:text-gray-900">
               {link.label}
             </Link>
           ))}
@@ -92,7 +92,7 @@ export function SiteHeader() {
           <span className="mx-1 h-4 w-px bg-gray-200" />
 
           {secondaryLinks.map((link) => (
-            <Link key={link.href} href={link.href} className="nav-link-underline text-[12px] font-normal uppercase tracking-[0.14em] text-gray-400 transition hover:text-gray-900">
+            <Link key={link.href} href={link.href} className="text-[12px] font-normal uppercase tracking-[0.14em] text-gray-400 transition hover:text-gray-900">
               {link.label}
             </Link>
           ))}
