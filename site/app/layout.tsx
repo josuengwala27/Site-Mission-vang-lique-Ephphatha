@@ -1,12 +1,19 @@
 import type { Metadata } from "next";
 import { Geist_Mono } from "next/font/google";
 import { Playfair_Display } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import { I18nProvider } from "../components/I18nProvider";
 import { SiteHeader } from "../components/SiteHeader";
 import { SiteFooter } from "../components/SiteFooter";
 import { FloatingBar } from "../components/FloatingBar";
 import { getBaseUrl, SITE_NAME, DEFAULT_DESCRIPTION_FR } from "@/lib/seo";
+
+const inter = Inter({
+  variable: "--font-sans-helvetica",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
@@ -101,7 +108,7 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <body
-        className={`${geistMono.variable} ${playfair.variable} antialiased`}
+        className={`${inter.variable} ${geistMono.variable} ${playfair.variable} antialiased`}
       >
         <script
           type="application/ld+json"
