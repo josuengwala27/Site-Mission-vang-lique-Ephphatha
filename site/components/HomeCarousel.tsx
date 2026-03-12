@@ -35,7 +35,7 @@ export default function HomeCarousel() {
       {SLIDES.map((slide, i) => (
         <div
           key={slide.src}
-          className="absolute inset-0 transition-opacity duration-1000 ease-in-out"
+          className="absolute inset-0 transition-opacity duration-1000 ease-out"
           style={{
             opacity: i === index ? 1 : 0,
             pointerEvents: i === index ? 'auto' : 'none',
@@ -46,7 +46,7 @@ export default function HomeCarousel() {
             src={slide.src}
             alt={slide.alt}
             fill
-            className="object-cover"
+            className={`object-cover transition-transform duration-2000 ease-out ${i === index ? 'scale-105' : 'scale-100'}`}
             sizes="100vw"
             priority={i === 0}
           />

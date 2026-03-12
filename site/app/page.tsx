@@ -77,23 +77,26 @@ export default function Home() {
     <div>
       <section className="relative h-screen min-h-[600px] overflow-hidden">
         <HomeCarousel />
-        <div className="absolute inset-0 z-10 bg-black/50" />
+        <div className="absolute inset-0 z-10 bg-linear-to-b from-brand-primary/70 via-black/40 to-black/60" />
         <div className="relative z-20 flex h-full flex-col items-center justify-center px-6 text-center text-white">
-          <h1 className="font-display text-5xl italic leading-[1.2] sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl">
+          <h1 className="hero-title-glow font-display text-5xl italic leading-[1.2] sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl">
             <TypingEffect text={t.hero1} speed={200} pauseAtEnd={3000} />
           </h1>
-          <p className="mx-auto mt-8 max-w-2xl text-lg sm:text-xl text-white/80">{t.heroSub}</p>
+          <p className="mx-auto mt-8 max-w-2xl text-lg sm:text-xl text-white/90">{t.heroSub}</p>
+          <a href="#decouvrir" className="btn-touch mt-10 rounded-full border-2 border-white/60 bg-white/10 px-8 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-white backdrop-blur-sm transition hover:border-white hover:bg-white/20">
+            {locale === 'fr' ? 'Découvrir' : 'Discover'}
+          </a>
         </div>
         <a href="#decouvrir" className="absolute bottom-10 left-1/2 z-20 -translate-x-1/2 animate-bounce text-white/50 transition hover:text-white" aria-label="Scroll down">
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="6 9 12 15 18 9" /></svg>
         </a>
       </section>
 
-      <section id="decouvrir" className="relative overflow-hidden bg-gradient-to-b from-brand-primary/5 to-white py-24 sm:py-32 lg:py-40">
+      <section id="decouvrir" className="relative overflow-hidden bg-linear-to-b from-brand-primary/5 to-white py-20 sm:py-28 lg:py-40">
         <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'80\' height=\'80\' viewBox=\'0 0 80 80\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%233c2252\' fill-opacity=\'1\'%3E%3Cpath d=\'M0 0h40v40H0V0zm40 40h40v40H40V40z\'/%3E%3C/g%3E%3C/svg%3E")' }} />
         <FadeIn className="container-page relative mx-auto max-w-6xl">
           <div className="text-center">
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brand-accent">{locale === 'fr' ? 'Notre histoire' : 'Our story'}</p>
+            <p className="text-base font-semibold uppercase tracking-[0.3em] text-brand-accent">{locale === 'fr' ? 'Notre histoire' : 'Our story'}</p>
             <h2 className="font-display mt-4 text-4xl italic text-brand-primary sm:text-5xl lg:text-6xl xl:text-7xl">{t.discoverTitle}</h2>
           </div>
           <div className="mt-16 grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">
@@ -101,7 +104,7 @@ export default function Home() {
               <p>{t.discoverP1}</p>
               <p>{t.discoverP2}</p>
             </div>
-            <div className="relative flex flex-col items-center justify-center rounded-3xl border-2 border-brand-accent/30 bg-brand-primary/5 px-8 py-12 text-center lg:py-16">
+            <div className="relative flex flex-col items-center justify-center rounded-3xl border-2 border-brand-accent/20 border-l-4 border-l-brand-accent bg-brand-primary/5 px-8 py-12 text-center lg:py-16">
               <span className="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-brand-accent px-6 py-1.5 text-sm font-bold uppercase tracking-widest text-brand-primary">Vision</span>
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-brand-accent">{t.visionRef}</p>
               <p className="mt-4 font-display text-xl italic leading-snug text-brand-primary sm:text-2xl lg:text-3xl">&laquo;&nbsp;{t.visionVerse}&nbsp;&raquo;</p>
@@ -113,34 +116,42 @@ export default function Home() {
       <section className="border-y border-gray-100 bg-brand-light py-24 sm:py-32">
         <div className="container-page">
           <FadeIn className="mx-auto max-w-4xl space-y-8 text-center">
-            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-brand-accent">{locale === 'fr' ? 'Vidéo' : 'Video'}</p>
+            <p className="text-base font-semibold uppercase tracking-[0.25em] text-brand-accent">{locale === 'fr' ? 'Vidéo' : 'Video'}</p>
             <h2 className="font-display text-3xl italic text-brand-primary sm:text-4xl lg:text-5xl">{t.videoTitle}</h2>
             <p className="text-[17px] leading-relaxed text-gray-500">{t.videoSub}</p>
-            <div className="relative mx-auto aspect-video max-w-4xl overflow-hidden rounded-3xl border-2 border-gray-200 shadow-xl ring-4 ring-white">
+            <div className="relative mx-auto aspect-video max-w-4xl overflow-hidden rounded-3xl border-2 border-brand-primary/20 shadow-2xl shadow-brand-primary/10 ring-2 ring-brand-accent/30">
               <iframe src="https://www.youtube.com/embed/18aoYJDpPwE" title="Welcome – Ephphatha" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen className="absolute inset-0 h-full w-full" />
             </div>
           </FadeIn>
         </div>
       </section>
 
-      <section className="py-20 sm:py-28">
+      <section className="py-20 sm:py-28 lg:py-32">
         <div className="container-page">
           <FadeIn className="mb-12 text-center">
             <h2 className="font-display text-3xl italic text-brand-primary sm:text-4xl lg:text-5xl">{t.statsTitle}</h2>
           </FadeIn>
-          <FadeIn className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            <div className="rounded-2xl border border-gray-100 bg-white p-8 shadow-sm transition hover:shadow-md"><AnimatedCounter target={3} label={t.stat1} /></div>
-            <div className="rounded-2xl border border-gray-100 bg-white p-8 shadow-sm transition hover:shadow-md"><AnimatedCounter target={2019} label={t.stat2} duration={2500} /></div>
-            <div className="rounded-2xl border border-gray-100 bg-white p-8 shadow-sm transition hover:shadow-md"><AnimatedCounter target={3} label={t.stat3} /></div>
-            <div className="rounded-2xl border border-gray-100 bg-white p-8 shadow-sm transition hover:shadow-md"><AnimatedCounter target={3} label={t.stat4} /></div>
-          </FadeIn>
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              { target: 3, label: t.stat1 },
+              { target: 2019, label: t.stat2, duration: 2500 },
+              { target: 3, label: t.stat3 },
+              { target: 3, label: t.stat4 },
+            ].map((item, i) => (
+              <FadeIn key={item.label} delay={i * 100}>
+                <div className="rounded-2xl border border-gray-100 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-brand-primary/5">
+                  <AnimatedCounter target={item.target} label={item.label} duration={item.duration} />
+                </div>
+              </FadeIn>
+            ))}
+          </div>
         </div>
       </section>
 
       <section className="border-y border-gray-100 bg-brand-light py-24 sm:py-32">
         <div className="container-page">
           <FadeIn className="mb-14 text-center">
-            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-brand-accent">{locale === 'fr' ? 'Nos priorités' : 'Our priorities'}</p>
+            <p className="text-base font-semibold uppercase tracking-[0.25em] text-brand-accent">{locale === 'fr' ? 'Nos priorités' : 'Our priorities'}</p>
             <h2 className="font-display mt-3 text-3xl italic text-brand-primary sm:text-4xl lg:text-5xl">{locale === 'fr' ? 'Prière, évangélisation, formation' : 'Prayer, evangelism, training'}</h2>
           </FadeIn>
           <div className="grid gap-8 md:grid-cols-3">
@@ -150,7 +161,7 @@ export default function Home() {
               { title: t.axe3, text: t.axe3t, icon: 'M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5' },
             ].map((item, i) => (
               <FadeIn key={item.title} delay={i * 100}>
-                <div className="group relative overflow-hidden rounded-3xl border border-gray-100 bg-white p-8 shadow-sm transition-all duration-300 hover:border-brand-primary/20 hover:shadow-xl hover:shadow-brand-primary/5">
+                <div className="group relative overflow-hidden rounded-3xl border border-gray-100 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-brand-primary/20 hover:shadow-xl hover:shadow-brand-primary/5">
                   <div className="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-brand-accent/10 transition-transform duration-300 group-hover:scale-110" />
                   <div className="relative flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-primary/10 text-brand-primary">
                     <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"><path d={item.icon} /></svg>
@@ -167,15 +178,15 @@ export default function Home() {
       <section className="bg-white py-24 sm:py-32">
         <div className="container-page">
           <FadeIn className="mb-14 text-center">
-            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-brand-accent">{locale === 'fr' ? 'Rendez-vous' : 'Schedule'}</p>
+            <p className="text-base font-semibold uppercase tracking-[0.25em] text-brand-accent">{locale === 'fr' ? 'Rendez-vous' : 'Schedule'}</p>
             <h2 className="font-display mt-3 text-3xl italic text-brand-primary sm:text-4xl lg:text-5xl">{t.cultesTitle}</h2>
           </FadeIn>
           <div className="grid gap-8 md:grid-cols-2">
             <FadeIn>
-              <div className="rounded-3xl border border-gray-100 bg-brand-light p-8 transition hover:shadow-md">
+              <div className="rounded-3xl border border-gray-100 bg-brand-light p-8 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg">
                 <div className="flex items-center gap-3">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-primary/10">
-                    <svg className="h-6 w-6 text-brand-primary" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" /></svg>
+                  <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-brand-primary/10 ring-2 ring-brand-accent/30">
+                    <svg className="h-7 w-7 text-brand-primary" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" /></svg>
                   </div>
                   <p className="text-sm font-semibold uppercase tracking-[0.2em] text-brand-primary">{t.weekday}</p>
                 </div>
@@ -187,10 +198,10 @@ export default function Home() {
               </div>
             </FadeIn>
             <FadeIn delay={150}>
-              <div className="rounded-3xl border border-gray-100 bg-brand-light p-8 transition hover:shadow-md">
+              <div className="rounded-3xl border border-gray-100 bg-brand-light p-8 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg">
                 <div className="flex items-center gap-3">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-primary/10">
-                    <svg className="h-6 w-6 text-brand-primary" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                  <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-brand-primary/10 ring-2 ring-brand-accent/30">
+                    <svg className="h-7 w-7 text-brand-primary" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                   </div>
                   <p className="text-sm font-semibold uppercase tracking-[0.2em] text-brand-primary">{t.sunday}</p>
                 </div>
@@ -225,7 +236,7 @@ export default function Home() {
                 { quote: t.t3, author: "Marie", photo: "/temoignages/marie.jpg" },
               ].map((item) => (
                 <FadeIn key={item.author} delay={item.author === "Filda" ? 150 : item.author === "Marie" ? 300 : 0}>
-                  <div className="group relative rounded-3xl bg-white/10 p-8 backdrop-blur-sm transition-all duration-500 hover:bg-white/15 hover:shadow-2xl hover:shadow-brand-accent/10">
+                  <div className="group relative rounded-3xl border border-brand-accent/20 bg-white/10 p-8 backdrop-blur-sm transition-all duration-500 hover:-translate-y-1 hover:border-brand-accent/40 hover:bg-white/15 hover:shadow-2xl hover:shadow-brand-accent/10">
                     <svg className="absolute right-6 top-6 h-10 w-10 text-brand-accent/30" viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" /></svg>
                     <div className="relative mx-auto mb-6 h-24 w-24 overflow-hidden rounded-full ring-4 ring-brand-accent/40 transition-all duration-500 group-hover:ring-brand-accent/70">
                       <Image src={item.photo} alt={item.author} fill className="object-cover transition-transform duration-700 group-hover:scale-110" />
@@ -244,32 +255,34 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-gradient-to-br from-brand-primary/8 via-white to-brand-accent/5 py-24 sm:py-32">
+      <section className="relative overflow-hidden bg-linear-to-br from-brand-primary/8 via-white to-brand-accent/5 py-24 sm:py-32">
         <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%233c2252\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")' }} />
         <FadeIn className="container-page relative mx-auto max-w-4xl text-center">
-          <p className="text-sm font-semibold uppercase tracking-[0.25em] text-brand-accent">{locale === 'fr' ? 'Bienvenue' : 'Welcome'}</p>
+          <p className="text-base font-semibold uppercase tracking-[0.25em] text-brand-accent">{locale === 'fr' ? 'Bienvenue' : 'Welcome'}</p>
           <h2 className="font-display mt-3 text-4xl italic text-brand-primary sm:text-5xl lg:text-6xl">{t.visitTitle}</h2>
           <p className="mx-auto mt-8 max-w-2xl text-[18px] leading-relaxed text-gray-600 sm:text-[19px]">{t.visitP}</p>
           <div className="mt-12 flex flex-col items-center justify-center gap-5 sm:flex-row">
-            <Link href="/cultes" className="group inline-flex items-center gap-2 rounded-full bg-brand-primary px-10 py-4 text-[16px] font-semibold text-white shadow-lg shadow-brand-primary/25 transition hover:bg-brand-primary/90 hover:shadow-xl hover:shadow-brand-primary/30">
+            <Link href="/cultes" className="btn-touch group inline-flex items-center gap-2 rounded-full bg-brand-primary px-10 py-4 text-[16px] font-semibold text-white shadow-lg shadow-brand-primary/25 transition hover:scale-[1.02] hover:bg-brand-primary/90 hover:shadow-xl hover:shadow-brand-primary/30">
               {t.visitBtn1}
               <svg className="h-5 w-5 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
             </Link>
-            <Link href="/contact" className="inline-flex items-center gap-2 rounded-full border-2 border-brand-primary px-10 py-4 text-[16px] font-semibold text-brand-primary transition hover:bg-brand-primary hover:text-white">
+            <Link href="/contact" className="btn-touch inline-flex items-center gap-2 rounded-full border-2 border-brand-primary px-10 py-4 text-[16px] font-semibold text-brand-primary transition hover:scale-[1.02] hover:bg-brand-primary hover:text-white">
               {t.visitBtn2}
             </Link>
           </div>
         </FadeIn>
       </section>
 
-      <section className="border-t border-gray-100 bg-brand-primary">
+      <section className="border-t border-brand-accent/20 bg-brand-primary">
         <div className="container-page grid gap-px md:grid-cols-3">
           {[
             { href: "/donner", label: t.bar1 },
             { href: "/servir", label: t.bar2 },
             { href: "/calendrier", label: t.bar3 },
           ].map((item) => (
-            <Link key={item.href} href={item.href} className="flex items-center justify-center py-6 text-[14px] font-medium uppercase tracking-[0.18em] text-white/70 transition hover:text-white">{item.label}</Link>
+            <Link key={item.href} href={item.href} className="btn-touch flex items-center justify-center py-8 text-[15px] font-semibold uppercase tracking-[0.18em] text-white/80 transition hover:bg-white/10 hover:text-white">
+              {item.label}
+            </Link>
           ))}
         </div>
       </section>

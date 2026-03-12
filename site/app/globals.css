@@ -35,6 +35,13 @@ body {
   @apply py-16 sm:py-24 lg:py-32;
 }
 
+/* Espacement sections mobile (plus d’air) */
+@media (max-width: 640px) {
+  .section-spacing {
+    @apply py-14;
+  }
+}
+
 .font-display {
   font-family: var(--font-playfair), Georgia, "Times New Roman", serif;
 }
@@ -59,4 +66,29 @@ body {
   margin-left: 2px;
   height: 1em;
   vertical-align: -0.15em;
+}
+
+/* Hero titre : léger glow */
+.hero-title-glow {
+  text-shadow: 0 0 40px rgba(60, 34, 82, 0.4), 0 2px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Boutons tactiles (mobile) */
+.btn-touch {
+  @apply min-h-[44px] min-w-[44px] inline-flex items-center justify-center;
+}
+
+/* Ligne de soulignement au hover (nav) */
+.nav-link-underline {
+  @apply relative;
+}
+.nav-link-underline::after {
+  content: '';
+  @apply absolute bottom-0 left-0 h-0.5 w-0 bg-brand-primary transition-all duration-300;
+}
+.nav-link-underline:hover::after {
+  @apply w-full;
+}
+.header-transparent .nav-link-underline::after {
+  @apply bg-white;
 }

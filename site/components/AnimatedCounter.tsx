@@ -56,10 +56,10 @@ export function AnimatedCounter({ target, suffix = '', prefix = '', label, durat
 
   return (
     <div ref={ref} className="text-center">
-      <p className="font-display text-4xl italic text-brand-primary sm:text-5xl">
+      <p className="font-display text-5xl italic text-brand-primary sm:text-6xl">
         {prefix}{count}{suffix}
       </p>
-      <p className="mt-2 text-[15px] text-gray-500">{label}</p>
+      <p className="mt-3 text-[15px] text-gray-500">{label}</p>
     </div>
   );
 }
