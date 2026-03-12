@@ -52,7 +52,7 @@ export function SiteHeader() {
 
         {/* Desktop nav */}
         <nav className="hidden items-center gap-6 lg:flex">
-          <Link href="/cultes" className="text-[13px] font-medium uppercase tracking-[0.14em] text-gray-500 transition hover:text-gray-900">
+          <Link href="/cultes" className="text-[13px] font-semibold uppercase tracking-[0.14em] text-gray-600 transition hover:text-gray-900">
             {t.nav.cultes}
           </Link>
 
@@ -60,7 +60,7 @@ export function SiteHeader() {
           <div className="relative" ref={dropdownRef}>
             <button
               onClick={() => setDropdownOpen(!dropdownOpen)}
-              className="flex items-center gap-1 text-[13px] font-medium uppercase tracking-[0.14em] text-gray-500 transition hover:text-gray-900"
+              className="flex items-center gap-1 text-[13px] font-semibold uppercase tracking-[0.14em] text-gray-600 transition hover:text-gray-900"
             >
               {t.nav.communaute}
               <svg className={`h-3 w-3 transition-transform duration-200 ${dropdownOpen ? 'rotate-180' : ''}`} viewBox="0 0 20 20" fill="currentColor">
@@ -68,13 +68,13 @@ export function SiteHeader() {
               </svg>
             </button>
             {dropdownOpen && (
-              <div className="absolute left-1/2 top-full mt-3 -translate-x-1/2 overflow-hidden rounded-xl border border-gray-100 bg-white shadow-xl">
+              <div className="absolute left-1/2 top-full mt-3 -translate-x-1/2 overflow-hidden rounded-xl border border-gray-200 bg-white shadow-xl">
                 {communityLinks.map((link) => (
                   <Link
                     key={link.href}
                     href={link.href}
                     onClick={() => setDropdownOpen(false)}
-                    className="block whitespace-nowrap px-6 py-3 text-[13px] font-medium text-gray-600 transition hover:bg-brand-light hover:text-brand-primary"
+                    className="block whitespace-nowrap px-6 py-3.5 text-[14px] font-semibold text-gray-700 transition hover:bg-brand-light hover:text-brand-primary"
                   >
                     {link.label}
                   </Link>
@@ -84,7 +84,7 @@ export function SiteHeader() {
           </div>
 
           {mainLinks.slice(1).map((link) => (
-            <Link key={link.href} href={link.href} className="text-[13px] font-medium uppercase tracking-[0.14em] text-gray-500 transition hover:text-gray-900">
+            <Link key={link.href} href={link.href} className="text-[13px] font-semibold uppercase tracking-[0.14em] text-gray-600 transition hover:text-gray-900">
               {link.label}
             </Link>
           ))}
@@ -92,7 +92,7 @@ export function SiteHeader() {
           <span className="mx-1 h-4 w-px bg-gray-200" />
 
           {secondaryLinks.map((link) => (
-            <Link key={link.href} href={link.href} className="text-[12px] font-normal uppercase tracking-[0.14em] text-gray-400 transition hover:text-gray-900">
+            <Link key={link.href} href={link.href} className="text-[12px] font-medium uppercase tracking-[0.14em] text-gray-500 transition hover:text-gray-900">
               {link.label}
             </Link>
           ))}
@@ -136,12 +136,12 @@ export function SiteHeader() {
       {open && (
         <div className="border-t border-gray-100 bg-white py-6 shadow-lg lg:hidden">
           <nav className="container-page flex flex-col gap-4">
-            <Link href="/cultes" onClick={close} className="text-[15px] font-medium uppercase tracking-widest text-gray-700">{t.nav.cultes}</Link>
+            <Link href="/cultes" onClick={close} className="text-[15px] font-semibold uppercase tracking-widest text-gray-700">{t.nav.cultes}</Link>
 
             <div>
               <button
                 onClick={() => setMobileExpanded(!mobileExpanded)}
-                className="flex w-full items-center justify-between text-[15px] font-medium uppercase tracking-widest text-gray-700"
+                className="flex w-full items-center justify-between text-[15px] font-semibold uppercase tracking-widest text-gray-700"
               >
                 {t.nav.communaute}
                 <svg className={`h-4 w-4 transition-transform ${mobileExpanded ? 'rotate-180' : ''}`} viewBox="0 0 20 20" fill="currentColor">
@@ -151,7 +151,7 @@ export function SiteHeader() {
               {mobileExpanded && (
                 <div className="ml-4 mt-2 flex flex-col gap-2">
                   {communityLinks.map((link) => (
-                    <Link key={link.href} href={link.href} onClick={close} className="text-[14px] text-gray-500 transition hover:text-gray-900">
+                    <Link key={link.href} href={link.href} onClick={close} className="text-[14px] font-semibold text-gray-600 transition hover:text-gray-900">
                       {link.label}
                     </Link>
                   ))}
@@ -160,7 +160,7 @@ export function SiteHeader() {
             </div>
 
             {mainLinks.slice(1).map((link) => (
-              <Link key={link.href} href={link.href} onClick={close} className="text-[15px] font-medium uppercase tracking-widest text-gray-700">
+              <Link key={link.href} href={link.href} onClick={close} className="text-[15px] font-semibold uppercase tracking-widest text-gray-700">
                 {link.label}
               </Link>
             ))}

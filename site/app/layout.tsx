@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist_Mono } from "next/font/google";
 import { Playfair_Display } from "next/font/google";
+import { Barlow } from "next/font/google";
 import "./globals.css";
 import { I18nProvider } from "../components/I18nProvider";
 import { SiteHeader } from "../components/SiteHeader";
@@ -8,9 +9,10 @@ import { SiteFooter } from "../components/SiteFooter";
 import { FloatingBar } from "../components/FloatingBar";
 import { getBaseUrl, SITE_NAME, DEFAULT_DESCRIPTION_FR } from "@/lib/seo";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const barlow = Barlow({
+  variable: "--font-sans-helvetica",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
 const geistMono = Geist_Mono({
@@ -99,7 +101,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} antialiased`}
+        className={`${barlow.variable} ${geistMono.variable} ${playfair.variable} antialiased`}
       >
         <I18nProvider>
           <SiteHeader />
