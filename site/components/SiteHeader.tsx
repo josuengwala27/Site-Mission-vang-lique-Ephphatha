@@ -3,30 +3,15 @@
 import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { usePathname } from 'next/navigation';
 import { useI18n } from './I18nProvider';
 
-const SCROLL_THRESHOLD = 80;
-
 export function SiteHeader() {
-  const pathname = usePathname();
-  const isHome = pathname === '/';
   const { locale, setLocale, t } = useI18n();
   const [open, setOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [mobileExpanded, setMobileExpanded] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const close = () => { setOpen(false); setMobileExpanded(false); };
-
-  useEffect(() => {
-    function handleScroll() {
-      setScrolled(window.scrollY >= SCROLL_THRESHOLD);
-    }
-    handleScroll();
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   useEffect(() => {
     function handleClick(e: MouseEvent) {
@@ -58,13 +43,8 @@ export function SiteHeader() {
     { href: '/jesus', label: t.nav.jesus },
   ];
 
-  const headerTransparent = isHome && !scrolled;
-  const headerClassName = headerTransparent
-    ? 'header-transparent sticky top-0 z-50 border-b border-white/10 bg-black/40 backdrop-blur-sm transition-colors duration-300'
-    : 'sticky top-0 z-50 border-b border-gray-100 bg-white/95 shadow-sm backdrop-blur-md transition-colors duration-300';
-
   return (
-    <header className={headerClassName}>
+    <header className="sticky top-0 z-50 border-b border-gray-100 bg-white/95 shadow-sm backdrop-blur-md">
       <div className="container-page flex h-28 items-center justify-between gap-8">
         <Link href="/" className="shrink-0" onClick={close}>
           <Image src="/logo-ephphatha.png" alt="Mission Évangélique Ephphatha" width={360} height={104} className="h-[88px] w-auto" priority />
@@ -72,7 +52,7 @@ export function SiteHeader() {
 
         {/* Desktop nav */}
         <nav className="hidden items-center gap-6 lg:flex">
-          <Link href="/cultes" className={`nav-link-underline text-[13px] font-medium uppercase tracking-[0.14em] transition ${headerTransparent ? 'text-white/90 hover:text-white' : 'text-gray-500 hover:text-gray-900'}`}>
+          <Link href="/cultes" className="nav-link-underline text-[13px] font-medium uppercase tracking-[0.14em] text-gray-500 transition hover:text-gray-900">
             {t.nav.cultes}
           </Link>
 
@@ -80,7 +60,7 @@ export function SiteHeader() {
           <div className="relative" ref={dropdownRef}>
             <button
               onClick={() => setDropdownOpen(!dropdownOpen)}
-              className={`nav-link-underline flex items-center gap-1 text-[13px] font-medium uppercase tracking-[0.14em] transition ${headerTransparent ? 'text-white/90 hover:text-white' : 'text-gray-500 hover:text-gray-900'}`}
+              className="nav-link-underline flex items-center gap-1 text-[13px] font-medium uppercase tracking-[0.14em] text-gray-500 transition hover:text-gray-900"
             >
               {t.nav.communaute}
               <svg className={`h-3 w-3 transition-transform duration-200 ${dropdownOpen ? 'rotate-180' : ''}`} viewBox="0 0 20 20" fill="currentColor">
@@ -104,33 +84,33 @@ export function SiteHeader() {
           </div>
 
           {mainLinks.slice(1).map((link) => (
-            <Link key={link.href} href={link.href} className={`nav-link-underline text-[13px] font-medium uppercase tracking-[0.14em] transition ${headerTransparent ? 'text-white/90 hover:text-white' : 'text-gray-500 hover:text-gray-900'}`}>
+            <Link key={link.href} href={link.href} className="nav-link-underline text-[13px] font-medium uppercase tracking-[0.14em] text-gray-500 transition hover:text-gray-900">
               {link.label}
             </Link>
           ))}
 
-          <span className={`mx-1 h-4 w-px ${headerTransparent ? 'bg-white/40' : 'bg-gray-200'}`} />
+          <span className="mx-1 h-4 w-px bg-gray-200" />
 
           {secondaryLinks.map((link) => (
-            <Link key={link.href} href={link.href} className={`nav-link-underline text-[12px] font-normal uppercase tracking-[0.14em] transition ${headerTransparent ? 'text-white/70 hover:text-white' : 'text-gray-400 hover:text-gray-900'}`}>
+            <Link key={link.href} href={link.href} className="nav-link-underline text-[12px] font-normal uppercase tracking-[0.14em] text-gray-400 transition hover:text-gray-900">
               {link.label}
             </Link>
           ))}
 
-          <span className={`mx-1 h-4 w-px ${headerTransparent ? 'bg-white/40' : 'bg-gray-200'}`} />
+          <span className="mx-1 h-4 w-px bg-gray-200" />
 
           {/* Language toggle */}
           <div className="flex items-center gap-1">
             <button
               onClick={() => setLocale('fr')}
-              className={`text-[12px] font-medium uppercase tracking-[0.14em] transition ${headerTransparent ? (locale === 'fr' ? 'text-white' : 'text-white/60 hover:text-white') : (locale === 'fr' ? 'text-brand-primary' : 'text-gray-400 hover:text-gray-700')}`}
+              className={`text-[12px] font-medium uppercase tracking-[0.14em] transition ${locale === 'fr' ? 'text-brand-primary' : 'text-gray-400 hover:text-gray-700'}`}
             >
               Fr
             </button>
-            <span className={`text-[12px] ${headerTransparent ? 'text-white/50' : 'text-gray-300'}`}>/</span>
+            <span className="text-[12px] text-gray-300">/</span>
             <button
               onClick={() => setLocale('en')}
-              className={`text-[12px] font-medium uppercase tracking-[0.14em] transition ${headerTransparent ? (locale === 'en' ? 'text-white' : 'text-white/60 hover:text-white') : (locale === 'en' ? 'text-brand-primary' : 'text-gray-400 hover:text-gray-700')}`}
+              className={`text-[12px] font-medium uppercase tracking-[0.14em] transition ${locale === 'en' ? 'text-brand-primary' : 'text-gray-400 hover:text-gray-700'}`}
             >
               En
             </button>
