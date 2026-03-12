@@ -32,7 +32,20 @@ const organizationJsonLd = {
   "@type": "Organization",
   name: SITE_NAME,
   url: baseUrl,
-  logo: `${baseUrl}/logo.png`,
+  logo: {
+    "@type": "ImageObject",
+    url: `${baseUrl}/logo.png`,
+    width: 512,
+    height: 512,
+  },
+};
+
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: SITE_NAME,
+  url: baseUrl,
+  publisher: { "@id": `${baseUrl}/#organization` },
 };
 
 export const metadata: Metadata = {
@@ -92,15 +105,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
-      <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
-        />
-      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} antialiased`}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify([
+              { ...organizationJsonLd, "@id": `${baseUrl}/#organization` },
+              websiteJsonLd,
+            ]),
+          }}
+        />
         <I18nProvider>
           <SiteHeader />
           <main>{children}</main>
